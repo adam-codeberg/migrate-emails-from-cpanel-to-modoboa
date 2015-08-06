@@ -1,5 +1,8 @@
 #!/bin/python
-
+'''
+A series of SSH commands executed via Python Fabric to generate 
+import sheets for Modoboa Domains and Identities
+'''
 from fabric.api import *
 from progressbar import ProgressBar
 import os

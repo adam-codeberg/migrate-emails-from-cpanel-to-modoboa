@@ -12,3 +12,4 @@ A series of SSH commands executed via Python Fabric to generate import sheets fo
 ### build_modoboa_account_list
  * creates two output files modoboa_identifiers.txt and modoboa_domains.txt to be used to with the bulk importer via modoboa.
 
+Enjoy!
