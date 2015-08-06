@@ -153,11 +153,10 @@ def build_email_list():
     list_to_file(admins, 'admin_list.txt')
 
 def build_modoboa_account_list():
+    build_email_list()
+
     admins = file_to_list('admin_list.txt')
     emails = file_to_list('email_list.txt')
-
-
-
 
     modoboa = []
     modoboa_emails = []
@@ -175,11 +174,18 @@ def build_modoboa_account_list():
         delimiter = i.count(',')
         e = i.split(',', delimiter )
 
-        modoboa_emails.append('account,' + e[1] + ',' + p + ',' + ',' + ',' + 'True,' + 'SimpleUsers,' + e[1] + ',4000,' +  domain[-1])
+        if 'admin' in domain[-2]:
+            pass
+        else:
+            modoboa_emails.append('account,' + e[1] + ',' + p + ',' + ',' + ',' + 'True,' + 'SimpleUsers,' + e[1] + ',4000,' +  domain[-1])
+
 
     for i in admins:
         delimiter = i.count('@')
         domain = i.split('@', delimiter )
+
+        delimiter = i.count(',')
+        e = i.split(',', delimiter )
 
         # generate salt, random password and encrypt
         #s = uuid.uuid4().hex
@@ -196,7 +202,6 @@ def build_modoboa_account_list():
 
     list_to_file(all_emails, 'modoboa_identifiers.txt')
     list_to_file(modoboa_domains, 'modoboa_domains.txt')
-
 
 def be_root():
     with settings(sudo_user='superuser', password='yourpassword'):
