@@ -23,8 +23,8 @@ def host_ws1():
     return env
 
 def host_srv1():
-    env.hosts = ['srv1.awebmail.net.au']
-    env.user = 'admin'
+    env.hosts = ['example.domain.com']
+    env.user = 'superuser'
     env.passwords = {'superuser@example.domain.com': 'password'}
     env.key_filename = 'your-ssh-key'
     return env
