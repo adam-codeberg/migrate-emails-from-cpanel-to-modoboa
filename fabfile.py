@@ -111,7 +111,7 @@ def get_imap_vhost_accounts_users():
 def get_imap_accounts(user, fqdn):
     '''
     Useage Example
-    fab host_ws1 get_imap_accounts:user=codeberg,fqdn=codeberg.com.au
+    fab host_ws1 get_imap_accounts:user=username,fqdn=example.com
     '''
     fqdn_path = run('find /home/%s/mail/ -type d -name %s' % (user, fqdn))
     account = run('find %s -mindepth 1 -maxdepth 1 -type d | rev | cut -d "/" -f1 | rev' % (fqdn_path))
@@ -121,7 +121,7 @@ def get_imap_accounts(user, fqdn):
 def get_imap_accounts_path(user, fqdn):
     '''
     Useage Example
-    fab host_ws1 get_imap_accounts:user=codeberg,fqdn=codeberg.com.au
+    fab host_ws1 get_imap_accounts:user=username,fqdn=example.com
     '''
     fqdn_path = run('find /home/%s/mail/ -type d -name %s' % (user, fqdn))
     account = run('find %s -mindepth 1 -maxdepth 1 -type d' % (fqdn_path))
@@ -129,12 +129,12 @@ def get_imap_accounts_path(user, fqdn):
     return accounts
 
 def pack_imap_accounts(user):
-    with settings(sudo_user='root', password='qq12angela'):
+    with settings(sudo_user='superuser', password='yourpassword'):
         sudo('tar -zcvf ../%s %s.tgz' % (user, user))
 
 
 def make_imap_destination(accounts):
-    with settings(sudo_user='root', password='qq12angela'):
+    with settings(sudo_user='superuser', password='yourpassword'):
         for user in accounts:
             sudo('mkdir /home/vmail/%s/%s/Maildir' % (fqdn, user))
 
@@ -199,7 +199,7 @@ def build_modoboa_account_list():
 
 
 def be_root():
-    with settings(sudo_user='root', password='qq12angela'):
+    with settings(sudo_user='superuser', password='yourpassword'):
         sudo('whoami')
 
 
