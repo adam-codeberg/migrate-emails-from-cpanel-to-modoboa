@@ -1,6 +1,8 @@
 # migrate-emails-from-cpanel-to-modoboa
 A series of SSH commands executed via Python Fabric to generate import sheets for Modoboa Domains and Identities
 
+Uses Python Fabric. For more information on how to use Fabirc please visit http://www.fabfile.org/
+
 ## Commands
 
 ### get_imap_vhost_accounts_users
@@ -11,4 +13,9 @@ A series of SSH commands executed via Python Fabric to generate import sheets fo
  
 ### build_modoboa_account_list
  * creates two output files modoboa_identifiers.txt and modoboa_domains.txt to be used to with the bulk importer via modoboa.
+
+## Useage example
+
+ * $ fab host_ws1 get_imap_vhost_accounts_users
+ * $ fab host_local build_modoboa_account_list
 
