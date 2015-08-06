@@ -191,7 +191,7 @@ def build_modoboa_account_list():
         #s = uuid.uuid4().hex
         p = uuid.uuid4().hex
         #password = hashlib.sha512( s + p ).hexdigest()
-        modoboa_admins.append('account,' + e[1] + p + ',' + ',' + ',' + 'True,' + 'DomainAdmins,' + e[1] + ',4000,' + domain[-1])
+        modoboa_admins.append('account,' + e[1] + ',' + p + ',' + ',' + ',' + 'True,' + 'DomainAdmins,' + e[1] + ',4000,' + domain[-1])
         modoboa_domains.append('domain,' + domain[-1] + ',4000,' + 'True' )
 
 
